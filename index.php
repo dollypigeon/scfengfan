@@ -32,7 +32,7 @@
 							<span class="icon-bar"></span>
 						</button>
 						<div class="navbar-brand">
-                <img src="images/fengfan.png" width="60" height="75"/>
+                <img src="images/slider/fengfan.png" width="60" height="75"/>
               <a href="index.html" ><h1><span>四川风帆</span>企业管理咨询服务有限公司</h1></a>
 
 						</div>
@@ -41,13 +41,13 @@
 					<div class="navbar-collapse collapse">
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="index.html" class="active">首页</a></li>
+								<li role="presentation"><a href="index.php" class="active">首页</a></li>
 								<li role="presentation"><a href="about.html">关于风帆</a></li>
 								<li role="presentation"><a href="services.html">业务项目</a></li>
                 <li role="presentation"><a href="zhaoping.php">求职招聘</a></li>
 								<li role="presentation"><a href="portfolio.html">客户案例</a></li>
 								<li role="presentation"><a href="blog.html">咨询服务</a></li>
-								<li role="presentation"><a href="contact.html">在线留言</a></li>
+								<li role="presentation"><a href="contact.html">联系我们</a></li>
                 <li role="presentation"><a href=“#”>联系我们</a></li>
 							</ul>
 						</div>
