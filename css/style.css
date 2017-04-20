@@ -131,6 +131,10 @@ a:hover {
 	font-weight:700;
 }
 
+table{
+  left:-500px;
+}
+
 .menu ul.nav-tabs li {
 	color:#000;
 }
