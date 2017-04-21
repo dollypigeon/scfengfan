@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>admin zhaoping</title>
+   <title>admin feedback</title>
    <!--
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../css/font-awesome.min.css">-->
-
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link href="../css/prettyPhoto.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet" -->
   </head>
   <body>
     <header>
@@ -30,8 +32,8 @@
 					<div class="navbar-collapse collapse">
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="zhaopingadmin.php" class="active">招聘信息</a></li>
-								<li role="presentation"><a href="feedbackadmin.php">留言反馈</a></li>
+								<li role="presentation"><a href="zhaopingadmin.php">招聘信息</a></li>
+								<li role="presentation"><a href="admin/feedback.php">留言反馈</a></li>
 							</ul>
 						</div>
 					</div>
@@ -40,12 +42,13 @@
 		</nav>
 	</header>
 
-<?php
+<div class="detail">
+                     <?php
 $servername = "wangyingtao.gotoftp5.com";
 $username = "wangyingtao";
 $password = "e3x5zub7";
 $dbname = "wangyingtao";
-
+$dataId=$_GET['id'];
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -53,24 +56,21 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id,jobname,jobaddr  FROM pwn_job";
+$sql = "SELECT id,title,content,name,sex,tel  FROM pwn_feedback_info WHERE id=$dataId";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<form action='zhaopingdetail.php' > <label>id: " . $row["id"]. " - 职位: " . $row["jobname"]. " <br> 工作地点: " . $row["jobaddr"]. "</label><br> <button type='submit' name='id' value='" . $row["id"]. "'>查看</button></form>";
-    }
+        echo "<p> 留言主题：" . $row["title"]. " <br>留言内容：" . $row["content"]. " <br>姓名：" .
+        $row["name"]. " <br>性别：" . $row["sex"]. "<br>联系电话：" . $row["tel"]. " </p>";
+        }
 } else {
     echo "0 results";
 }
 $conn->close();
- if( isset($_POST["id"])) {
-
-    }
 
 ?>
-
-
+</div>
   </body>
   </html>

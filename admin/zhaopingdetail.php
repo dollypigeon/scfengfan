@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>admin zhaoping</title>
+   <!--
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/animate.css">
 	<link href="../css/prettyPhoto.css" rel="stylesheet">
-	<link href="../css/style.css" rel="stylesheet" />
+	<link href="../css/style.css" rel="stylesheet" -->
   </head>
   <body>
     <header>
@@ -31,8 +32,8 @@
 					<div class="navbar-collapse collapse">
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="zhaopingadmin.php">ZhaoPing</a></li>
-								<li role="presentation"><a href="admin/feedback.php">FeedBack</a></li>
+								<li role="presentation"><a href="zhaopingadmin.php">招聘信息</a></li>
+								<li role="presentation"><a href="feedbackadmin.php">留言反馈</a></li>
 							</ul>
 						</div>
 					</div>
@@ -41,26 +42,28 @@
 		</nav>
 	</header>
 
+<div class="detail">
                      <?php
 $servername = "wangyingtao.gotoftp5.com";
 $username = "wangyingtao";
 $password = "e3x5zub7";
 $dbname = "wangyingtao";
-$dataId=$_GET['id']; 
+$dataId=$_GET['id'];
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
-$sql = "SELECT id,jobname  FROM pwn_job WHERE id=$dataId";
+$sql = "SELECT id,jobname,jobtype,jobaddr,jobintro,jobrequest,tel,education  FROM pwn_job WHERE id=$dataId";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<p>". $row["id"]. " " . $row["jobname"]. " </p>";
+        echo "<p> 职位：" . $row["jobname"]. " <br>工作类型：" . $row["jobtype"]. " <br>工作地点：" .
+        $row["jobaddr"]. " <br>学历要求：" . $row["education"]. "<br>工作内容：" . $row["jobintro"]. " <br>工作要求：" . $row["jobrequest"]. " <br>联系电话：" . $row["tel"]. " </p>";
         }
 } else {
     echo "0 results";
@@ -68,7 +71,6 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 ?>
-            
-   
+</div>
   </body>
   </html>
