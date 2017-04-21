@@ -63,13 +63,15 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<p> 职位：" . $row["jobname"]. " <br>工作类型：" . $row["jobtype"]. " <br>工作地点：" .
-        $row["jobaddr"]. " <br>学历要求：" . $row["education"]. "<br>工作内容：" . $row["jobintro"]. " <br>工作要求：" . $row["jobrequest"]. " <br>联系电话：" . $row["tel"]. " </p>";
+        $row["jobaddr"]. " <br>学历要求：" . $row["education"]. "<br>工作内容：" . $row["jobintro"]. " <br>工作要求：" . $row["jobrequest"]. " <br>联系电话：" . $row["tel"]. " </p><br><form action='zhaopingupdate.php'><button type='submit' name='id' value='". $dataId ."'class='btn btn-primary'>Update</button></form><button type='submit' name='delete' class='btn btn-danger'>Delete</button>";
         }
 } else {
     echo "0 results";
 }
 $conn->close();
+if(isset($_POST['Update'])){
 
+}
 ?>
 </div>
   </body>
