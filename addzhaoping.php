@@ -27,7 +27,7 @@
             </div>
             <button type="submit"  name="login" class="btn btn-primary">Submit</button>
 <?php
-
+session_start();
     if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['login'])) {
         login();
     }
@@ -46,7 +46,8 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
+$_SESSION['username']=$_POST['userInput'];
+header('Location:login.php');
     }
 ?>
         </form>
