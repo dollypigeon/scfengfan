@@ -16,7 +16,7 @@
   </head>
   <body>
     <div class="text-center">
-        <form method="post">
+        <form  method="post">
             <div class="form-group">
                 <label for="username">UserName: </label>
                 <input type="text" class="form-control" name="userInput" placeholder="Enter UserName"/>
@@ -26,7 +26,8 @@
                 <input type="password" class="form-control" name="passwordInput" placeholder="Enter Password"/>
             </div>
             <button type="submit"  name="login" class="btn btn-primary">Submit</button>
-            <?php
+<?php
+
     if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['login'])) {
         login();
     }
@@ -45,7 +46,7 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo '<script>window.location.href = "login.php";</script>';
+
     }
 ?>
         </form>
