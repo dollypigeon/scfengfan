@@ -44,6 +44,10 @@
 
 <div class="detail">
                      <?php
+					 session_start();
+if(!isset($_SESSION['username'])){
+	header('Location:index.php');
+}
 $servername = "wangyingtao.gotoftp5.com";
 $username = "wangyingtao";
 $password = "e3x5zub7";

@@ -12,6 +12,13 @@
 	<link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
+	<?php
+session_start();
+if(!isset($_SESSION['username'])){
+	header('Location:index.php');
+}
+
+	?>
     <header>
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="navigation">
